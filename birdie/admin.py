@@ -1,7 +1,16 @@
+import body as body
 from django.contrib import admin
+from . import models
 
-from birdie.models import Post
 
-admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    model = models.Post
+    list_display = ('excerpt',)
 
-# Register your models here.
+    def excerpt(self, obj):
+        return obj.get_excerpt(5)
+
+
+admin.site.register(models.Post, PostAdmin)
+
+
