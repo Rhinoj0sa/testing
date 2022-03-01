@@ -1,7 +1,7 @@
 import pytest
 
 from mixer.backend.django import mixer
-
+from ..models import Post
 pytestmark = pytest.mark.django
 
 
